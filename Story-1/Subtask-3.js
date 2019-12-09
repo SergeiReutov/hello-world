@@ -8,13 +8,13 @@
  */
 
 // Можно использовать обычный if-else
-function moreThanFive(x) {
-  if (x > 5) {
-    return 'Yes';
-  } else {
-    return 'No';
-  }
-}
+// function moreThanFive(x) {
+//   if (x > 5) {
+//     return 'Yes';
+//   } else {
+//     return 'No';
+//   }
+// }
 
 // Если ветка 'true' заканчивается return'ом, то 'else' даже писать не обязательно
 // ведь return все равно закончит выполнение функции
@@ -29,11 +29,11 @@ function moreThanFive(x) {
 // Но если условие очень простое и не выполняется никаких дополнительных действий, а сразу return
 // то можно использовать тернарный оператор (условие ? true : false)
 
-const moreThanFive = (x) => x > 5 ? 'Yes' : 'No';
+// const moreThanFive = (x) => x > 5 ? 'Yes' : 'No';
 
 // Tests
-console.log(`moreThanFive(2) = ${moreThanFive(2)}`);
-console.log(`moreThanFive(9) = ${moreThanFive(9)}`);
+// console.log(`moreThanFive(2) = ${moreThanFive(2)}`);
+// console.log(`moreThanFive(9) = ${moreThanFive(9)}`);
 
 /*
  * Задание 3.1: написать функцию 'printSign', которая принимает boolean 'isPositive' (true или false)
@@ -50,6 +50,10 @@ console.log(`moreThanFive(9) = ${moreThanFive(9)}`);
  * То есть достаточно просто if (isPositive) ...
  */
 
+function printSign(isPositive) {
+  return isPositive ? '+' : '-';
+}
+
 /*
  * Задание 3.2: написать функцию 'printNumberWithSign', которая принимает число [num] и boolean 'isPositive'
  * и возвращает '+[num]', если isPositive = true, и '-[num]', если isPositive = false
@@ -59,6 +63,10 @@ console.log(`moreThanFive(9) = ${moreThanFive(9)}`);
  * Написать Functional Declaration (через if-else) и Arrow Function (через ternary return)
  * Написать несколько тестов для этой функции
  */
+
+function printNumberWithSign(num, isPositive) {
+  return `${printSign(isPositive)}${num}`;
+}
 
 /*
  * Задание 3.3: написать функцию 'renderNameWithTitle', которая принимает строку [name] и boolean 'isMale'
@@ -78,3 +86,7 @@ console.log(`moreThanFive(9) = ${moreThanFive(9)}`);
  * Написать Functional Declaration (через if-else) и Arrow Function (через ternary return)
  * Написать несколько тестов для этой функции
  */
+
+function renderNameWithTitle(name, isMale) {
+  return `<div className='title'>\n  Hello, ${isMale ? 'Mr.' : 'Ms.'}${name}!\n</div>`;
+}

@@ -13,11 +13,11 @@ function printName(name) {
 
 // Но сейчас так пишут редко. Проще использовать строковые литералы
 // Обратите внимание, что это не обычные одинарные кавычки, а обратная кавычка, она на клавише 'ё'
-const printName = (name) => `Name: ${name}`;
+// const printName = (name) => `Name: ${name}`;
 
 // Tests
-console.log('printName("Sergei") = ' + printName('Sergei'));
-console.log(`printName('Alex') = ${printName('Alex')}`);
+// console.log('printName("Sergei") = ' + printName('Sergei'));
+// console.log(`printName('Alex') = ${printName('Alex')}`);
 
 /*
  * Задание 2.1: написать функцию 'printHello', которая принимает строку [name] и возвращает 'Hello, [name]!'
@@ -25,6 +25,10 @@ console.log(`printName('Alex') = ${printName('Alex')}`);
  * Написать Functional Declaration (обычным сложением строк) и Arrow Function (строковым литералом)
  * Написать несколько тестов для этой функции
  */
+
+function printHello(name) {
+  return `Hello, ${name}!`;
+}
 
 /*
  * Задание 2.2: написать функцию 'renderName', которая принимает строку [name] и возвращает такой блок (как строку):
@@ -48,3 +52,7 @@ console.log(`printName('Alex') = ${printName('Alex')}`);
  * любая функция, которая возвращает HTML, должна называться начиная с 'render':
  * renderHeader, renderFooter и т.д.
  */
+
+function renderName(name) {
+  return `<div className='header'>\n  ${printHello(name)}\n</div>`;
+}
