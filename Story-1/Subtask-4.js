@@ -39,3 +39,19 @@ renderHeader('Olena', false, false);
  * Написать все через Arrow Functions
  * Написать несколько тестов для этой функции
  */
+
+function renderTitle(isMale) {
+  return isMale ? 'Mr.' : 'Ms.';
+}
+
+function renderHello(name, isMale) {
+  return `<div>Hello, ${renderTitle(isMale)} ${name}!</div>`;
+}
+
+function renderWelcome(isFirstTime) {
+  return `<div>${isFirstTime ? 'Welcome to Smithy!' : 'Glad to see you back!'}</div>`;
+}
+
+function renderHeader(name, isMale, isFirstTime) {
+  return `<div className='header'>\n  ${renderHello(name, isMale)}\n  ${renderWelcome(isFirstTime)}\n</div>`;
+}
