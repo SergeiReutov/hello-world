@@ -47,3 +47,14 @@ function newDestructuring(obj) {
  * 
  * То есть, если я вызову component({ name: 'Alex' }), то ожидаю увидеть 'Hello, Alex!'
  */
+
+function component(props) {
+  const { name, isLoading = false, error = null } = props;
+  if (isLoading) {
+    return 'Loading...';
+  }
+  if (error !== null) {
+    return `Error: ${error}`;
+  }
+  return `Hello, ${name}!`;
+}

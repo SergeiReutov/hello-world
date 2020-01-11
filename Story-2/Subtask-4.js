@@ -88,3 +88,75 @@
  * 
  * ожидаю увидеть кусок с Hello
  */
+
+const initialState = {
+  name: '',
+  isLoading: false,
+  error: null
+};
+
+const setName = name => ({
+  type: 'SET_NAME',
+  name
+});
+
+const setIsLoading = isLoading => ({
+  type: 'SET_IS_LOADING',
+  isLoading
+});
+
+const setError = error => ({
+  type: 'SET_ERROR',
+  error
+});
+
+const reducer = (action, state) => {
+  switch (action.type) {
+    case 'SET_NAME':
+      return {
+        ...state,
+        name: action.name,
+        isLoading: initialState.isLoading,
+        error: initialState.null
+      };
+    case 'SET_IS_LOADING':
+      return {
+        ...state,
+        isLoading: action.isLoading,
+        name: initialState.name,
+        error: initialState.error
+      };
+    case 'SET_ERROR':
+      return {
+        ...state,
+        error: action.error,
+        name: initialState.name,
+        isLoading: initialState.isLoading
+      };
+    default:
+      return state;
+  }
+}
+
+function renderComponent(props) {
+  const { name, isLoading = false, error = null } = props;
+  if (isLoading) {
+    return '<div className="myComponent">\n  <div className="loader">\n    Loading...\n  </div>\n</div>';
+  }
+  if (error !== null) {
+    return `<div className="myComponent">\n  <div className="error">\n    Error: ${error}\n  </div>\n</div>`;
+  }
+  return `<div className="myComponent">\n  <div className="error">\n    Hello, ${name}!\n  </div>\n</div>`;
+}
+
+const loadingAction = setIsLoading(true);
+const loadingState = reducer(loadingAction, initialState);
+renderComponent(loadingState);
+
+const errorAction = setError('Cannot load name');
+const errorState = reducer(errorAction, loadingState);
+renderComponent(errorState);
+
+const nameAction = setName('Alex');
+const nameState = reducer(nameAction, errorState);
+renderComponent(nameState);

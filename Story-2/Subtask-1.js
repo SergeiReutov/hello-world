@@ -36,12 +36,27 @@ console.log(mouse);
  * Проверить полученный объект.
  */
 
+const cat = {
+  name: 'Tom',
+  height: 100
+};
+
+cat.age = 8;
+cat['hasFriend'] = true;
+const fieldToAdd = 'friend';
+cat[fieldToAdd] = {
+  type: 'mouse',
+  name: 'Jerry'
+};
+
 /*
  * Задание 1.2: написать функцию getFriendName, которая принимает на вход объект cat.
  * Функция должна возвращать имя друга (в нашем случае - 'Jerry'), если hasFriend = true,
  * и строку 'Tom has no friend :(', если hasFriend = false.
  * Разумеется, Tom - это мы взяли поле name из того же объекта.
  */
+
+const getFriendName = cat => cat.hasFriend ? cat.friend.name : 'Tom has no friend :(';
 
 /*
  * Задание 1.3: добавить в объект cat поле
@@ -58,6 +73,15 @@ console.log(mouse);
  * Проверить, что теперь функция вернет 'Tom is all by himself'.
  */
 
+cat.owner = {
+  type: 'person',
+  name: 'Old lady'
+};
+
+const getOwnerName = cat => cat && cat.owner && cat.owner.name
+  ? cat.owner.name
+  : 'Tom is all by himself';
+
 /*
  * Задание 1.4: создать объект person с полем name: 'Harold'
  * К готовому объекту добавить поля
@@ -72,3 +96,15 @@ console.log(mouse);
  *  - если person.superPower = 'fly', то useSuperPower(person) = 'Look, mom, I can fly!'
  *  - если person.superPower = 'swim', то useSuperPower(person) = 'No superPower!'
  */
+
+const person = {
+  name: 'Harold'
+};
+
+person.superPower = 'run';
+person.run = () => 'I can run fast!';
+person.fly = () => 'Look, mom, I can fly!';
+
+const useSuperPower = person => person[person.superPower]
+  ? person[person.superPower]()
+  : 'No superPower!';

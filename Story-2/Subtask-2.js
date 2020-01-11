@@ -136,6 +136,27 @@ console.log(personBoris);
  * }
  */
 
+const initialState = {
+  name: '',
+  isLoading: false,
+  error: null
+};
+
+const changeName = (newName, state) => ({
+  ...state,
+  name: newName
+});
+
+const changeIsLoading = (newIsLoading, state) => ({
+  ...state,
+  isLoading: newIsLoading
+});
+
+const changeError = (newError, state) => ({
+  ...state,
+  error: newError
+});
+
 /*
  * Задание 2.2: написать функцию reducer, которая принимает два параметра:
  * action: объект с полями
@@ -162,9 +183,45 @@ console.log(reducer(action2, initialState)); // должен вернуть { na
 
 // Использовать оператор switch.
 
+const reducer = (action, state) => {
+  switch (action.type) {
+    case 'name':
+      return {
+        ...state,
+        name: data
+      };
+    case 'isLoading':
+      return {
+        ...state,
+        isLoading: data
+      };
+    case 'error':
+      return {
+        ...state,
+        error: data
+      };
+    default:
+      return state;
+  }
+}
 /*
  * Задание 2.3: написать три функции:
  * setName - принимает параметр newName и возвращает объект { type: 'name', data: newName }
  * setIsLoading - принимает параметр newIsLoading и возвращает объект { type: 'isLoading', data: newIsLoading }
  * setError - принимает параметр newError и возвращает объект { type: 'error', data: newError }
  */
+
+const setName = newName => ({
+  type: 'name',
+  data: newName
+});
+
+const setIsLoading = newIsLoading => ({
+  type: 'isLoading',
+  data: newIsLoading
+});
+
+const setError = newError => ({
+  type: 'error',
+  data: newError
+});
