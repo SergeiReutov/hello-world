@@ -1,0 +1,40 @@
+Story-2: Объекты
+
+Объекты - огромная и очень важная часть JavaScript. Когда-нибудь вы узнаете, что подавляющее большинство вещей
+в JS - объекты, просто специфические (даже функции - это объекты, но которые можно выполнять). Но это потом.
+Сейчас надо научиться работать с обычными объектами вида
+
+const user = {
+  name: 'Sergei',
+  surname: 'Reutov',
+  age: 29,
+  isMale: true,
+  address: {
+    country: 'Poland',
+    city: 'Wroclaw'
+  },
+  speak: function() {
+    return 'Hello!';
+  }
+};
+
+Здесь user - это объект с полями разных типов:
+name: string,   // поля еще называют свойствами объекта
+surname: string, 
+age: number,
+isMale: boolean,
+address: object,
+speak: function
+
+В таком случае говорят, что speak - это метод объекта user
+Вызвать его можно так:
+user.speak()  // вернет строку 'Hello!'
+
+Получается, что объект address вложен в объект user. Уровень вложенности может быть бесконечный,
+то есть у объекта user.address может быть еще какой-то объект внутри и т.д.
+
+У нас будет 4 Subtasks:
+  Subtask-1. Objects: basics
+  Subtask-2. Immutability and spread operator
+  Subtask-3. Destructuring
+  Subtask-4. Main: Redux flow
