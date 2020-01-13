@@ -3,7 +3,7 @@
  *
  * Установите Jest:
  * 
- * npm install jest
+ * npm install jest --save-dev
  * 
  * Давайте сразу добавим его в "scripts": у вас сейчас там есть строка
  *
